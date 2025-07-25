@@ -150,7 +150,7 @@ function showErrorMsgsAdd() {
  */
 function hideLog() {
   setTimeout(() => {
-    document.getElementById("created-contact-msg").classList.add("closing");
+    document.getElementById("created-contact-msg").classList.add("closingAddContact");
   }, 1700);
 }
 
@@ -161,7 +161,7 @@ function showLog() {
   document.getElementById("log").innerHTML = `<div id="created-contact-msg" class="created-contact-msg">
         <p>Contact created successfully</p>
       </div>`;
-  document.getElementById("log").classList.remove("closing");
+  // document.getElementById("log").classList.remove("closing");
 }
 
 /**

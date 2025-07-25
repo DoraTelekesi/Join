@@ -305,7 +305,7 @@ async function removeSingleUser(id) {
  */
 function hideLogDelete() {
   setTimeout(() => {
-    document.getElementById("deleted-contact-msg").classList.add("closing");
+    document.getElementById("deleted-contact-msg").classList.add("closingDeletedContact");
   }, 1700);
 }
 
@@ -316,7 +316,7 @@ function showLogDelete() {
   document.getElementById("log-delete").innerHTML = `<div id="deleted-contact-msg" class="created-contact-msg">
     <p>Contact deleted</p>
   </div>`;
-  document.getElementById("log-delete").classList.remove("closing");
+  document.getElementById("log-delete").classList.remove("closingDeletedContact");
 }
 
 /**

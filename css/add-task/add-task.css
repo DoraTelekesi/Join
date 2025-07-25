@@ -358,7 +358,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   top: 50%;
   transform: translate(-50%, -50%);
   animation: slidesFromBottomToMiddle 0.15s forwards;
-  z-index: 9999; /* Animation duration and forwards to keep the end position */
+  z-index: 9999; 
 }
 
 @keyframes slidesFromBottomToMiddle {

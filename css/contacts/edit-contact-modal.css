@@ -141,33 +141,32 @@
   width: 326px;
   height: 74px;
   box-shadow: 0px 4px 0px 0px rgb(0, 0, 0, 0.1);
-  position: absolute;
-  left: 50%;
+  position: fixed;
+  left: 50vw;
   top: 50%;
-  transform: translateX(-50%);
-  animation: slideInFromRightEdit ease-in-out 0.45s 1 normal forwards;
+  transform: translate(-50%, -50%);
+  animation: editedIn 0.15s forwards;
   z-index: 9999;
 }
 
-@keyframes slideInFromRightEdit {
+@keyframes editedIn {
   0% {
-    transform: translateX(100vw);
+    transform: translate(-50%, 100vh);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
   }
 }
-
-.closing {
-  animation: slideOutToRightEdit ease-in-out 0.45s 1 normal forwards;
+.closingEditContact {
+  animation: slideContactAdded ease-in-out 0.45s 1 normal forwards;
 }
 
-@keyframes slideOutToRightEdit {
+@keyframes slideContactAdded {
   0% {
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
   }
   100% {
-    transform: translateX(100vw);
+    transform: translate(-50%, 100vh);
   }
 }
 

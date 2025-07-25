@@ -56,7 +56,7 @@
     width: 630px;
     height: 600px;
     align-items: center;
-    position: relative;
+    /* position: relative; */
   }
   .add-contact-modal-header {
     width: 100%;

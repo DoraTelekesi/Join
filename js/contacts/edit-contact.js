@@ -261,7 +261,7 @@ function showLogEdit() {
   document.getElementById("log-edit").innerHTML = `<div id="edited-contact-msg" class="edited-contact-msg">
       <p>Contact edited successfully</p>
     </div>`;
-  document.getElementById("log-edit").classList.remove("closing");
+  document.getElementById("log-edit").classList.remove("closingEditContact");
 }
 
 /**
@@ -269,6 +269,6 @@ function showLogEdit() {
  */
 function hideLogEdit() {
   setTimeout(() => {
-    document.getElementById("edited-contact-msg").classList.add("closing");
+    document.getElementById("edited-contact-msg").classList.add("closingEditContact");
   }, 1700);
 }
