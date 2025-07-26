@@ -70,17 +70,16 @@ async function loginUser() {
 async function processLogin() {
   let loginUserEmail = document.getElementById("email").value;
   let filteredUser = usersArr.filter((item) => item.user.email === loginUserEmail);
-  // await putLoginInfo("whoIsLoggedIn", {
-  //   isGuestLoggedIn: false,
-  //   userLoggedIn: { name: filteredUser[0].user.name, avatar: filteredUser[0].user.avatar },
-  // });
-localStorage.setItem("loginInfo", JSON.stringify({
-  isGuestLoggedIn: false,
-  userLoggedIn: {
-    name: filteredUser[0].user.name,
-    avatar: filteredUser[0].user.avatar
-  }
-}));
+  localStorage.setItem(
+    "loginInfo",
+    JSON.stringify({
+      isGuest: false,
+      userLoggedIn: {
+        name: filteredUser[0].user.name,
+        avatar: filteredUser[0].user.avatar,
+      },
+    })
+  );
 }
 
 /**

@@ -9,7 +9,7 @@ let editDropdownOpen = false;
  * If contacts are already selected, it marks them in the UI.
  */
 function loadContactsForDropdown() {
-  const url = "https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/contactList.json";
+  const url = "https://join-2-41ee1-default-rtdb.europe-west1.firebasedatabase.app/contactList.json";
   const dropdown = document.getElementById("edit-drop-down-contact-list");
 
   fetch(url)
@@ -80,12 +80,12 @@ function closeEditContactDropdown() {
 function loadAssignedContacts(taskId) {
   const container = document.getElementById("edit-selected-avatars");
   container.innerHTML = "";
-  fetch(`https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/taskList/${taskId}.json`)
+  fetch(`https://join-2-41ee1-default-rtdb.europe-west1.firebasedatabase.app/taskList/${taskId}.json`)
     .then((res) => res.json())
     .then((taskData) => taskData?.assigned_to || [])
     .then((assignedNames) => {
       assignedContactNames = assignedNames;
-      return fetch("https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/contactList.json").then((res) =>
+      return fetch("https://join-2-41ee1-default-rtdb.europe-west1.firebasedatabase.app/contactList.json").then((res) =>
         res.json()
       );
     })
@@ -147,7 +147,7 @@ async function renderAssignedAvatars() {
  * @returns {Promise<Object>} A promise that resolves to the list of contacts.
  */
 async function fetchContacts() {
-  const response = await fetch("https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/contactList.json");
+  const response = await fetch("https://join-2-41ee1-default-rtdb.europe-west1.firebasedatabase.app/contactList.json");
   return await response.json();
 }
 

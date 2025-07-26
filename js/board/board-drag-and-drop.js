@@ -44,7 +44,7 @@ async function editColumnChange(id, tasksArr) {
     return;
   }
   try {
-    await fetch(`https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/taskList/${id}.json`, {
+    await fetch(`https://join-2-41ee1-default-rtdb.europe-west1.firebasedatabase.app/taskList/${id}.json`, {
       method: "PUT",
       body: JSON.stringify(task),
     });

@@ -57,14 +57,14 @@ function generateAssignedToHTML(assignedTo) {
  */
 async function updateSubtaskStatus(taskId, subtaskTitle, index) {
   const response = await fetch(
-    `https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/taskList/${taskId}.json`
+    `https://join-2-41ee1-default-rtdb.europe-west1.firebasedatabase.app/taskList/${taskId}.json`
   );
   const task = await response.json();
   const subtask = task.subtasks.find((st) => st.title === subtaskTitle);
   if (subtask) {
     subtask.status = subtask.status === "done" ? "undone" : "done";
     updateCheckboxSubtask(subtask, subtask.status, index);
-    await fetch(`https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/taskList/${taskId}.json`, {
+    await fetch(`https://join-2-41ee1-default-rtdb.europe-west1.firebasedatabase.app/taskList/${taskId}.json`, {
       method: "PUT",
       body: JSON.stringify(task),
     });
@@ -126,7 +126,7 @@ function deleteTask(id) {
  */
 async function confirmDeleteTask() {
   if (taskToDelete) {
-    await fetch(`https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/taskList/${taskToDelete}.json`, {
+    await fetch(`https://join-2-41ee1-default-rtdb.europe-west1.firebasedatabase.app/taskList/${taskToDelete}.json`, {
       method: "DELETE",
     });
     taskToDelete = null;
@@ -229,7 +229,7 @@ async function saveEditedTaskManual(taskId) {
     assigned_to: assignedContactNames,
     subtasks: editSubtasks,
   };
-  await fetch(`https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/taskList/${taskId}.json`, {
+  await fetch(`https://join-2-41ee1-default-rtdb.europe-west1.firebasedatabase.app/taskList/${taskId}.json`, {
     method: "PUT",
     body: JSON.stringify(updatedTask),
   });

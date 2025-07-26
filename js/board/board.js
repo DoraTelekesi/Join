@@ -166,11 +166,11 @@ function searchTaskTitles() {
  * Displays the logged-in user's information in the UI.
  */
 async function showLoggedInInfo() {
-  await loadLoginInfo("whoIsLoggedIn");
-  if (loginInfo[0].isGuestLoggedIn === true) {
+  const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
+  if (loginInfo.isGuest === true) {
     document.getElementById("initialLetter").innerHTML = "G";
   } else {
-    document.getElementById("initialLetter").innerHTML = loginInfo[0].userLoggedIn.avatar;
+    document.getElementById("initialLetter").innerHTML = loginInfo.userLoggedIn.avatar;
   }
 }
 

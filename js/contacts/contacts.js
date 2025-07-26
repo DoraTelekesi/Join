@@ -15,11 +15,11 @@ async function init() {
  * Displays the logged-in user's information or a guest avatar.
  */
 async function showLoggedInInfo() {
-  await loadLoginInfo("whoIsLoggedIn");
-  if (loginInfo[0].isGuestLoggedIn === true) {
+  const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
+  if (loginInfo.isGuest === true) {
     document.getElementById("initialLetter").innerHTML = "G";
   } else {
-    document.getElementById("initialLetter").innerHTML = loginInfo[0].userLoggedIn.avatar;
+    document.getElementById("initialLetter").innerHTML = loginInfo.userLoggedIn.avatar;
   }
 }
 
@@ -229,10 +229,17 @@ function generateUniqueId() {
  */
 function createAvatar(str) {
   let newStr = "";
-  for (let i = 0; i < str.length; i++) {
-    if (str[i].match(/[A-Z]/)) {
-      newStr += str[i];
+  if (str !== str.toLowerCase()) {
+    for (let i = 0; i < str.length; i++) {
+      if (str[i].match(/[A-Z]/)) {
+        newStr += str[i];
+      }
     }
+  } else {
+    let arr = str.split(" ");
+    arr.forEach((word) => {
+      newStr += word[0];
+    });
   }
   return newStr;
 }

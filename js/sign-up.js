@@ -1,4 +1,4 @@
-const BASE_URL = "https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/";
+const BASE_URL = "https://join-2-41ee1-default-rtdb.europe-west1.firebasedatabase.app/";
 
 /**
  * Initializes the sign-up page by fetching users, disabling the sign-up button, and creating a random color.
@@ -74,10 +74,17 @@ function disableSignupBtn() {
  */
 function createAvatar(str) {
   let newStr = "";
-  for (let i = 0; i < str.length; i++) {
-    if (str[i].match(/[A-Z]/)) {
-      newStr += str[i];
+  if (str !== str.toLowerCase()) {
+    for (let i = 0; i < str.length; i++) {
+      if (str[i].match(/[A-Z]/)) {
+        newStr += str[i];
+      }
     }
+  } else {
+    let arr = str.split(" ");
+    arr.forEach((word) => {
+      newStr += word[0];
+    });
   }
   return newStr;
 }

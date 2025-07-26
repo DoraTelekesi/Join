@@ -9,7 +9,7 @@ let contactList = {
   },
   1: {
     color: "#6b5b95",
-    avatar: "DK",
+    avatar: "MF",
     name: "Martin Fischer",
     email: "martin@hotmail.com",
     phoneNumber: "+0987654321",
@@ -17,7 +17,7 @@ let contactList = {
   },
   2: {
     color: "#88b04b",
-    avatar: "YA",
+    avatar: "EB",
     name: "Eva Braun",
     email: "eva@hotmail.com",
     phoneNumber: "+1122334455",
@@ -31,14 +31,6 @@ let contactList = {
     phoneNumber: "+5566778899",
     password: "dora123",
   },
-  4: {
-    color: "#92a8d1",
-    avatar: "G",
-    name: "Guest",
-    email: "",
-    phoneNumber: "",
-    password: "",
-  },
 };
 
 let taskList = {
@@ -51,8 +43,7 @@ let taskList = {
     priority: "medium",
     assigned_to: {
       0: "Dora Telekesi",
-      1: "Yama Azizi",
-      2: "Daniel Kwiatkowski",
+      1: "Eva Braun",
     },
     subtasks: {
       0: { title: "Implement Recipe Recommendation", status: "done" },
@@ -70,7 +61,6 @@ let taskList = {
     priority: "urgent",
     assigned_to: {
       0: "Noah Velickovic",
-      1: "Yama Azizi",
     },
     subtasks: {
       0: { title: "Establish CSS Methodology", status: "done" },
@@ -87,8 +77,7 @@ let taskList = {
     priority: "low",
     assigned_to: {
       0: "Noah Velickovic",
-      1: "Daniel Kwiatkowski",
-      2: "Dora Telekesi",
+      1: "Dora Telekesi",
     },
     subtasks: {},
     category: "Technical Task",
@@ -101,9 +90,7 @@ let taskList = {
     date: "2025-11-06",
     priority: "low",
     assigned_to: {
-      0: "Yama Azizi",
-      1: "Daniel Kwiatkowski",
-      2: "Noah Velickovic",
+      1: "Noah Velickovic",
     },
     subtasks: {},
     category: "User Story",
@@ -112,9 +99,9 @@ let taskList = {
 
 function initStorage() {
   // console.log("hex");
-  putData(`users`, users);
-  // putData("contactList", contactList);
-  // putData("taskList", taskList);
+  // putData(`users`, users);
+  putData("contactList", contactList);
+  putData("taskList", taskList);
 }
 
 // const BASE_URL =
