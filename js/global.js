@@ -2,8 +2,71 @@
  * Base URL for the Firebase database.
  * @constant {string}
  */
-const BASE_URL = "https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/";
-// const BASE_URL = "https://join-2-3f627-default-rtdb.europe-west1.firebasedatabase.app/"
+// const BASE_URL = "https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/";
+const BASE_URL = "https://join-2-3f627-default-rtdb.europe-west1.firebasedatabase.app/";
+
+import { initializeApp } from "firebase/app";
+
+// TODO: Replace the following with your app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCNbIH0t3wUyQdxSBBAU3npX9vzM41QTgk",
+  authDomain: "join-2-3f627.firebaseapp.com",
+  databaseURL: "https://join-2-3f627-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "join-2-3f627",
+  storageBucket: "join-2-3f627.firebasestorage.app",
+  messagingSenderId: "676052994204",
+  appId: "1:676052994204:web:aba0c92048da839f140559",
+};
+
+const app = initializeApp(firebaseConfig);
+
+import { getAuth, signInAnonymously, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+
+const auth = getAuth(app);
+
+async function loginGuest() {
+  try {
+    const userCredential = await signInAnonymously(auth);
+    console.log("Guest logged in:", userCredential.user.uid);
+    // Redirect or update UI here
+    window.location.href = "./dashboard.html";
+  } catch (error) {
+    console.error("Guest login error:", error);
+  }
+}
+
+async function loginEmail(email, password) {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    console.log("User logged in:", userCredential.user.uid);
+    // Proceed to app
+    window.location.href = "./dashboard.html";
+  } catch (error) {
+    console.error("Login failed:", error.message);
+  }
+}
+
+async function logOut() {
+  try {
+    await signOut(auth);
+    console.log("User signed out");
+    window.location.href = "index.html";
+  } catch (error) {
+    console.error("Logout error:", error);
+  }
+}
+
+import { onAuthStateChanged } from "firebase/auth";
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("User is signed in:", user.uid);
+    // Load user-specific data here
+  } else {
+    console.log("No user signed in");
+    // Redirect to login page or show login UI
+  }
+});
 
 /**
  * Array to store contacts.
@@ -79,18 +142,18 @@ async function putLoginInfo(path = "", data = {}) {
 /**
  * Logs out the current user and redirects to the login page.
  */
-async function logOut() {
-  await putLoginInfo("whoIsLoggedIn", { isGuestLoggedIn: false, userLoggedIn: { name: "", avatar: "" } });
-  window.location.href = "index.html";
-}
+// async function logOut() {
+//   await putLoginInfo("whoIsLoggedIn", { isGuestLoggedIn: false, userLoggedIn: { name: "", avatar: "" } });
+//   window.location.href = "index.html";
+// }
 
 /**
  * Logs in as a guest user and redirects to the dashboard.
  */
-async function loginGuest() {
-  await putLoginInfo("whoIsLoggedIn", { isGuestLoggedIn: true, userLoggedIn: { name: "", avatar: "" } });
-  window.location.href = "./dashboard.html";
-}
+// async function loginGuest() {
+//   await putLoginInfo("whoIsLoggedIn", { isGuestLoggedIn: true, userLoggedIn: { name: "", avatar: "" } });
+//   window.location.href = "./dashboard.html";
+// }
 
 /**
  * Loads tasks from the database.
