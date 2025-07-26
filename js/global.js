@@ -80,7 +80,7 @@ async function putLoginInfo(path = "", data = {}) {
  * Logs out the current user and redirects to the login page.
  */
 async function logOut() {
-  await putLoginInfo("whoIsLoggedIn", { isGuestLoggedIn: false, userLoggedIn: { name: "", avatar: "" } });
+  localStorage.removeItem("loginInfo");
   window.location.href = "index.html";
 }
 
@@ -88,7 +88,7 @@ async function logOut() {
  * Logs in as a guest user and redirects to the dashboard.
  */
 async function loginGuest() {
-  await putLoginInfo("whoIsLoggedIn", { isGuestLoggedIn: true, userLoggedIn: { name: "", avatar: "" } });
+  localStorage.setItem("loginInfo", JSON.stringify({ isGuest: true, name: "Guest", avatar: "G" }));
   window.location.href = "./dashboard.html";
 }
 

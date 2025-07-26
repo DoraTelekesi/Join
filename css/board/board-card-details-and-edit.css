@@ -341,8 +341,13 @@
 .selected-avatars-overlay {
   height: 180px;
   overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
 }
 
+.selected-avatars-overlay::-webkit-scrollbar {
+  display: none;
+}
 .negative-margin {
   margin-top: -10px;
 }

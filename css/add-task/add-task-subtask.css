@@ -16,12 +16,16 @@
   padding: 5px;
   padding-left: 10px;
   border-radius: 10px;
+  /* position: relative; */
 }
 
 .subtask-list {
+  width: 420px;
   display: flex;
   flex-direction: column;
   gap: 5px;
+  max-height: 135px;
+  overflow-y: auto;
 }
 .subtask-list-item:hover {
   cursor: pointer;
@@ -58,12 +62,13 @@
 }
 
 .change-input {
+  width: 100%;
   gap: 20px;
   position: relative;
 }
 .change-input input {
   height: 30px;
-  width: 420px;
+  width: 80%;
 }
 .subtask-list-item-separator-2 {
   width: 2px;
@@ -96,4 +101,13 @@
 }
 .subtask-list-item-separator-2 {
   right: 39px;
+}
+
+.selected-avatar.extra-avatar {
+  background-color: #ccc;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }

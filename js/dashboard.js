@@ -4,7 +4,7 @@
  */
 async function init() {
   await loadData();
-  await showLoggedInInfo();
+  showLoggedInInfo();
   highlightMenuActual();
 }
 
@@ -22,20 +22,26 @@ function getGreeting() {
 
 /**
  * Displays the logged-in user information on the dashboard and adjusts the greeting based on the time of day.
- * @returns {Promise<void>}
+ * Uses localStorage instead of fetching from backend.
  */
-async function showLoggedInInfo() {
-  await loadLoginInfo("whoIsLoggedIn");
+function showLoggedInInfo() {
+  const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
+
+  if (!loginInfo) {
+    // No login info in localStorage, redirect to login page or handle logout
+    window.location.href = "./dashboard.html";
+    return;
+  }
 
   const greeting = getGreeting();
-  const isGuest = loginInfo[0].isGuestLoggedIn;
-  const user = isGuest ? { avatar: "G", name: "" } : loginInfo[0].userLoggedIn;
+  const isGuest = loginInfo.isGuest;
+  const user = isGuest ? { avatar: "G", name: "" } : loginInfo.userLoggedIn;
 
   document.getElementById("initialLetter").innerHTML = user.avatar;
   document.getElementById("dashboard-name").innerHTML = user.name;
   document.getElementById("dashboard-time").innerHTML = greeting;
-  document.getElementById("dashboard-name-greeting").innerHTML = isGuest 
-    ? `<p class="dashboard-greeting-p">${greeting}</p>` 
+  document.getElementById("dashboard-name-greeting").innerHTML = isGuest
+    ? `<p class="dashboard-greeting-p">${greeting}</p>`
     : `<p class="dashboard-greeting-p">${greeting}</p><p class="dashboard-name">${user.name}</p>`;
 }
 

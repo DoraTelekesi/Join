@@ -7,8 +7,8 @@ let usersArr = [];
 
 function init() {
   getUsersFromDatabase();
-  loadLoginInfo("whoIsLoggedIn");
-  putLoginInfo("whoIsLoggedIn", { isGuestLoggedIn: false, userLoggedIn: { name: "", avatar: "" } });
+  // loadLoginInfo("whoIsLoggedIn");
+  // putLoginInfo("whoIsLoggedIn", { isGuestLoggedIn: false, userLoggedIn: { name: "", avatar: "" } });
 }
 
 /**
@@ -70,17 +70,24 @@ async function loginUser() {
 async function processLogin() {
   let loginUserEmail = document.getElementById("email").value;
   let filteredUser = usersArr.filter((item) => item.user.email === loginUserEmail);
-  await putLoginInfo("whoIsLoggedIn", {
-    isGuestLoggedIn: false,
-    userLoggedIn: { name: filteredUser[0].user.name, avatar: filteredUser[0].user.avatar },
-  });
+  // await putLoginInfo("whoIsLoggedIn", {
+  //   isGuestLoggedIn: false,
+  //   userLoggedIn: { name: filteredUser[0].user.name, avatar: filteredUser[0].user.avatar },
+  // });
+localStorage.setItem("loginInfo", JSON.stringify({
+  isGuestLoggedIn: false,
+  userLoggedIn: {
+    name: filteredUser[0].user.name,
+    avatar: filteredUser[0].user.avatar
+  }
+}));
 }
 
 /**
  * Logs in a guest user and redirects to the dashboard.
  */
 function loginGuest() {
-  putLoginInfo("whoIsLoggedIn", { isGuestLoggedIn: true, userLoggedIn: { name: "", avatar: "" } });
+  localStorage.setItem("loginInfo", JSON.stringify({ isGuest: true, name: "Guest", avatar: "G" }));
   window.location.href = "./dashboard.html";
 }
 

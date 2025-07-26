@@ -1,3 +1,19 @@
+@media (max-width: 1367px) {
+  .card-s-move-resp {
+    display: block;
+  }
+  .card-s-move-resp:hover {
+    cursor: pointer;
+  }
+  .card-s-move-resp-menu {
+    right: -50px;
+    font-size: 16px;
+  }
+  .move:hover {
+    background-color: #2a3d59;
+  }
+}
+
 @media (max-width: 1250px) {
   .board-columns {
     flex-direction: column;
@@ -190,17 +206,6 @@
   }
   .card-s {
     flex-shrink: 0;
-  }
-
-  .card-s-move-resp {
-    display: block;
-  }
-  .card-s-move-resp:hover {
-    cursor: pointer;
-  }
-  .card-s-move-resp-menu {
-    right: -50px;
-    font-size: 16px;
   }
 }
 @media (max-width: 600px) {
