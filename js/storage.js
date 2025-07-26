@@ -3,31 +3,31 @@ let contactList = {
     color: "#ff6f61",
     avatar: "NV",
     name: "Noah Velickovic",
-    email: "noah.velic@hotmail.com",
+    email: "noah@hotmail.com",
     phoneNumber: "+1234567890",
     password: "noah123",
   },
   1: {
     color: "#6b5b95",
     avatar: "DK",
-    name: "Daniel Kwiatkowski",
-    email: "danielkwiatkowski@gmx.de",
+    name: "Martin Fischer",
+    email: "martin@hotmail.com",
     phoneNumber: "+0987654321",
-    password: "daniel123",
+    password: "martin123",
   },
   2: {
     color: "#88b04b",
     avatar: "YA",
-    name: "Yama Azizi",
-    email: "aziziyama92@gmail.com",
+    name: "Eva Braun",
+    email: "eva@hotmail.com",
     phoneNumber: "+1122334455",
-    password: "yama123",
+    password: "eva123",
   },
   3: {
     color: "#f7cac9",
     avatar: "DT",
     name: "Dora Telekesi",
-    email: "dorothea0929@gmail.com",
+    email: "dora@hotmail.com.com",
     phoneNumber: "+5566778899",
     password: "dora123",
   },
@@ -112,7 +112,7 @@ let taskList = {
 
 function initStorage() {
   // console.log("hex");
-  // putData(`users`, users);
+  putData(`users`, users);
   // putData("contactList", contactList);
   // putData("taskList", taskList);
 }

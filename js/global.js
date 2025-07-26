@@ -3,6 +3,7 @@
  * @constant {string}
  */
 const BASE_URL = "https://join-382e0-default-rtdb.europe-west1.firebasedatabase.app/";
+// const BASE_URL = "https://join-2-3f627-default-rtdb.europe-west1.firebasedatabase.app/"
 
 /**
  * Array to store contacts.
