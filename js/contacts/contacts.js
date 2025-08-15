@@ -330,16 +330,24 @@ function showLogDelete() {
  * Changes the clear icon to a blue version.
  */
 function changeToBlueIcon() {
-  document.getElementById("clear").classList.add("dp-none");
-  document.getElementById("clear-hover").classList.remove("dp-none");
+  const clear = document.getElementById("clear");
+  const hover = document.getElementById("clear-hover");
+  if (clear && hover) {
+    clear.classList.add("dp-none");
+    hover.classList.remove("dp-none");
+  }
 }
 
 /**
  * Changes the clear icon back to a black version.
  */
 function changeToBlackIcon() {
-  document.getElementById("clear").classList.remove("dp-none");
-  document.getElementById("clear-hover").classList.add("dp-none");
+  const clear = document.getElementById("clear");
+  const hover = document.getElementById("clear-hover");
+  if (clear && hover) {
+    clear.classList.remove("dp-none");
+    hover.classList.add("dp-none");
+  }
 }
 
 /**
@@ -364,30 +372,56 @@ function closeEditMenu() {
  * Changes the edit icon to a blue version.
  */
 function changeToBlueIconEdit() {
-  document.getElementById("edit-icon-b").classList.remove("dp-none");
-  document.getElementById("edit-icon-n").classList.add("dp-none");
+  const blue = document.getElementById("edit-icon-b");
+  const normal = document.getElementById("edit-icon-n");
+  if (blue && normal) {
+    blue.classList.remove("dp-none");
+    normal.classList.add("dp-none");
+  }
 }
 
 /**
  * Changes the edit icon back to a black version.
  */
 function changeToBlackIconEdit() {
-  document.getElementById("edit-icon-b").classList.add("dp-none");
-  document.getElementById("edit-icon-n").classList.remove("dp-none");
+  const blue = document.getElementById("edit-icon-b");
+  const normal = document.getElementById("edit-icon-n");
+  if (blue && normal) {
+    blue.classList.add("dp-none");
+    normal.classList.remove("dp-none");
+  }
 }
 
 /**
  * Changes the delete icon to a blue version.
  */
 function changeToBlueIconDelete() {
-  document.getElementById("delete-icon-b").classList.remove("dp-none");
-  document.getElementById("delete-icon-n").classList.add("dp-none");
+  const blue = document.getElementById("delete-icon-b");
+  const normal = document.getElementById("delete-icon-n");
+  if (blue && normal) {
+    blue.classList.remove("dp-none");
+    normal.classList.add("dp-none");
+  }
 }
 
 /**
  * Changes the delete icon back to a black version.
  */
 function changeToBlackIconDelete() {
-  document.getElementById("delete-icon-b").classList.add("dp-none");
-  document.getElementById("delete-icon-n").classList.remove("dp-none");
+  const blue = document.getElementById("delete-icon-b");
+  const normal = document.getElementById("delete-icon-n");
+  if (blue && normal) {
+    blue.classList.add("dp-none");
+    normal.classList.remove("dp-none");
+  }
 }
+(function () {
+  if (typeof window !== "undefined") {
+    window.changeToBlueIcon = changeToBlueIcon;
+    window.changeToBlackIcon = changeToBlackIcon;
+    window.changeToBlueIconEdit = changeToBlueIconEdit;
+    window.changeToBlackIconEdit = changeToBlackIconEdit;
+    window.changeToBlueIconDelete = changeToBlueIconDelete;
+    window.changeToBlackIconDelete = changeToBlackIconDelete;
+  }
+})();

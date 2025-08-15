@@ -94,7 +94,7 @@
                   >Title<span class="red">*</span></label
                 >
                 <input
-                oninput="removeErrorMsgs('required-title', 'add-task-title')"
+                oninput="removeErrorMsgs('required-title', 'add-task-title'); removeErrorMsgs('task-already-exists', 'add-task-title')"
                   type="text"
                   id="add-task-title"
                   class="add-task-title"
